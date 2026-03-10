@@ -7,8 +7,10 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install uv
+
 COPY pyproject.toml .
-RUN pip install uv && uv sync
+RUN uv sync --no-dev
 
 COPY . .
 

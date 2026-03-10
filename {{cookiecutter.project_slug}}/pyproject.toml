@@ -1,0 +1,25 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.1.0"
+description = "{{cookiecutter.description}}"
+authors = [{name = "{{cookiecutter.author}}"}]
+requires-python = ">={{cookiecutter.python_version}}"
+dependencies = [
+    "django>={{cookiecutter.django_version}}",
+    "django-environ>=0.11",
+    "gunicorn>=21.0",
+    "psycopg2-binary>=2.9",
+    "redis>=5.0",
+    "django-redis>=5.4",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
