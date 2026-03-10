@@ -10,7 +10,11 @@ pre-commit install -f
 
 echo "Initial commit..."
 git add .
-git commit -m "initial commit from django-template-cookiecutter"
+git commit -m "initial commit from django-template-cookiecutter" || {
+    echo "Pre-commit made fixes, recommitting..."
+    git add .
+    git commit -m "initial commit from django-template-cookiecutter"
+}
 
 echo "Creating GitHub repo..."
 gh repo create {{cookiecutter.github_username}}/{{cookiecutter.project_slug}} \

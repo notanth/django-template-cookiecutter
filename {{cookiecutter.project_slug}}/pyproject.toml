@@ -11,11 +11,16 @@ dependencies = [
     "psycopg2-binary>=2.9",
     "redis>=5.0",
     "django-redis>=5.4",
+    # ADD PROJECT-SPECIFIC DEPS HERE e.g:
+    # "stripe>=7.0",
+    # "django-allauth>=0.60",
+    # "djangorestframework>=3.15",
+    # "celery>=5.3",
+    # "django-storages>=1.14",  # for Cloudflare R2 media/static
 ]
 
 [tool.ruff]
-line-length = 88
-target-version = "py312"
+line-length = 100  # 88 is too short for Django validators — adjust if needed
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
